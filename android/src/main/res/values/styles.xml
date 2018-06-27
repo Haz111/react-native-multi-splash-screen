@@ -5,6 +5,7 @@
 
     <style name="RNSplashScreen_SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:statusBarColor">@color/color_primary</item>
         <item name="android:windowAnimationStyle">@style/RNSplashScreen_SplashAnimation</item>
     </style>
 </resources>
