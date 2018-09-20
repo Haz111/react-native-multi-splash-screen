@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Color;
 
-import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.bridge.ReactContext;
 
@@ -12,17 +11,17 @@ import java.lang.ref.WeakReference;
 
 public class SplashScreen {
     private static Dialog mSplashDialog;
-    private static WeakReference<ReactActivity> mActivity;
+    private static WeakReference<Activity> mActivity;
 
     /**
      * Show the splash screen.
      */
-    public static void show(final ReactActivity activity, final ReactInstanceManager instanceManager) {
+    public static void show(final Activity activity, final ReactInstanceManager instanceManager) {
         if (activity == null) return;
 
         // Store weak-reference to showing activity (in case we try to hide too early)
         // NOTE: For instance in direct execution of index.android.js
-        mActivity = new WeakReference<ReactActivity>(activity);
+        mActivity = new WeakReference<Activity>(activity);
 
         activity.runOnUiThread(new Runnable() {
             @Override
