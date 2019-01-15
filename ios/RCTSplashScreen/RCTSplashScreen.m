@@ -1,6 +1,7 @@
 #import "RCTSplashScreen.h"
 
 static RCTRootView *rootView = nil;
+static UIViewController *rootViewController = nil;
 
 @interface RCTSplashScreen()
 
@@ -8,7 +9,7 @@ static RCTRootView *rootView = nil;
 
 @implementation RCTSplashScreen
 
-RCT_EXPORT_MODULE(SplashScreen)
+RCT_EXPORT_MODULE(RNMultiSplashScreen)
 
 + (NSString *)splashImageNameForOrientation {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -17,13 +18,13 @@ RCT_EXPORT_MODULE(SplashScreen)
     CGSize viewSize = CGSizeMake(screenWidth, screenHeight);
 
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-    
+
     NSString* viewOrientation = @"Portrait";
     if (UIDeviceOrientationIsLandscape(orientation)) {
         viewSize = CGSizeMake(viewSize.height, viewSize.width);
         viewOrientation = @"Landscape";
     }
-    
+
     NSArray* imagesDict = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"UILaunchImages"];
 
     for (NSDictionary* dict in imagesDict) {
@@ -34,8 +35,10 @@ RCT_EXPORT_MODULE(SplashScreen)
     return nil;
 }
 
-+ (void)show:(RCTRootView *)v {
++ (void)initAndShow:(RCTRootView *)v rootViewController:(UIViewController *)rvc{
     rootView = v;
+    rootViewController = rvc;
+
     rootView.loadingViewFadeDelay = 0.1;
     rootView.loadingViewFadeDuration = 0.1;
     UIImageView *view = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
@@ -45,10 +48,10 @@ RCT_EXPORT_MODULE(SplashScreen)
     [[NSNotificationCenter defaultCenter] removeObserver:rootView  name:RCTContentDidAppearNotification object:rootView];
 
     [rootView setLoadingView:view];
+    rootView.loadingView.hidden = NO;
 }
 
-
-RCT_EXPORT_METHOD(hide) {
+RCT_EXPORT_METHOD(hideSplashScreen) {
     if (!rootView) {
         return;
     }
@@ -64,6 +67,23 @@ RCT_EXPORT_METHOD(hide) {
                                            [rootView.loadingView removeFromSuperview];
                                        }];
                    });
+}
+
+RCT_EXPORT_METHOD(showNativeView:(NSString *)name) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIView *v = [[[NSBundle mainBundle] loadNibNamed:@"PlaceholderView" owner:self options:nil] firstObject];
+        UIViewController * vc = [[UIViewController alloc] init];
+        vc.view = v;
+
+        [rootViewController presentViewController:vc animated:NO completion:nil];
+    });
+
+}
+
+RCT_EXPORT_METHOD(backToReact) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [rootViewController dismissViewControllerAnimated:NO completion:nil];
+    });
 }
 
 @end

@@ -1,7 +1,7 @@
 {
-  "name": "rn-splash-screen",
+  "name": "react-native-multi-splash-screen",
   "version": "5.2.0",
-  "description": "A JavaScript-controlled splash-screen designed to be run directly after the native splash-screen.",
+  "description": "A simple switcher to native views. Flow can be JavaScript-controlled. Also designed to open view splash-screen after closing native splash-screen.",
   "main": "index.js",
   "author": {
     "name": "Ryan Leckey",
@@ -20,12 +20,12 @@
     "hide",
     "mobile"
   ],
-  "homepage": "https://github.com/mehcode/rn-splash-screen",
+  "homepage": "https://github.com/Haz111/rn-multi-splash-screen",
   "bugs": {
-    "url": "https://github.com/mehcode/rn-splash-screen/issues"
+    "url": "https://github.com/Haz111/rn-multi-splash-screen/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mehcode/rn-splash-screen.git"
+    "url": "git@github.com:Haz111/rn-multi-splash-screen.git"
   }
 }

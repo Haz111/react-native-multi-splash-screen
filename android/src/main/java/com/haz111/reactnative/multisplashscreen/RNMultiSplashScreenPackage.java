@@ -1,4 +1,4 @@
-package com.mehcode.reactnative.splashscreen;
+package com.haz111.reactnative.multisplashscreen;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class SplashScreenPackage implements ReactPackage {
+public class RNMultiSplashScreenPackage implements ReactPackage {
     
 
     @Override
@@ -28,7 +28,7 @@ public class SplashScreenPackage implements ReactPackage {
             ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
 
-        modules.add(new SplashScreenModule(reactContext));
+        modules.add(new RNMultiSplashScreenModule(reactContext));
 
         return modules;
     }

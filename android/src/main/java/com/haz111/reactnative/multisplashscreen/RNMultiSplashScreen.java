@@ -1,4 +1,4 @@
-package com.mehcode.reactnative.splashscreen;
+package com.haz111.reactnative.multisplashscreen;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -9,14 +9,14 @@ import com.facebook.react.bridge.ReactContext;
 
 import java.lang.ref.WeakReference;
 
-public class SplashScreen {
+public class RNMultiSplashScreen {
     private static Dialog mSplashDialog;
     private static WeakReference<Activity> mActivity;
 
     /**
      * Show the splash screen.
      */
-    public static void show(final Activity activity, final ReactInstanceManager instanceManager) {
+    public static void show(final Activity activity, final ReactInstanceManager instanceManager, final String splashName) {
         if (activity == null) return;
 
         // Store weak-reference to showing activity (in case we try to hide too early)
@@ -27,7 +27,15 @@ public class SplashScreen {
             @Override
             public void run() {
                 if (!activity.isFinishing()) {
-                    mSplashDialog = new Dialog(activity, R.style.RNSplashScreen_SplashTheme);
+                    String name = "RNSplashScreen_SplashTheme";
+
+                    if (splashName != null) {
+                        name = name + "_" + splashName;
+                    }
+
+                    int styleId = activity.getResources().getIdentifier(name, "style", activity.getPackageName());
+
+                    mSplashDialog = new Dialog(activity, styleId);
                     mSplashDialog.setCancelable(false);
 
                     if (!mSplashDialog.isShowing()) {

@@ -4,6 +4,6 @@
 @interface RCTSplashScreen : NSObject <RCTBridgeModule>
 
 + (NSString *)splashImageNameForOrientation;
-+ (void)show:(RCTRootView *)v;
++ (void)initAndShow:(RCTRootView *)v rootViewController:(UIViewController *)rvc;
 
 @end
