@@ -1,22 +1,29 @@
 package com.haz111.reactnative.multisplashscreen;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.graphics.Color;
+import android.content.res.Resources;
 
+import android.widget.TextView;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.bridge.ReactContext;
 
 import java.lang.ref.WeakReference;
 
 public class RNMultiSplashScreen {
-    private static Dialog mSplashDialog;
+    static final String defaultSplashName = "RNMultiSplashScreen_SplashTheme";
+
+    private static FullScreenDialog mSplashDialog;
     private static WeakReference<Activity> mActivity;
+
+    public static void show(final Activity activity, final ReactInstanceManager instanceManager, final String viewName) {
+        RNMultiSplashScreen.show(activity, instanceManager, viewName, null);
+    }
 
     /**
      * Show the splash screen.
      */
-    public static void show(final Activity activity, final ReactInstanceManager instanceManager, final String splashName) {
+    public static void show(final Activity activity, final ReactInstanceManager instanceManager, final String viewName, final String text) {
         if (activity == null) return;
 
         // Store weak-reference to showing activity (in case we try to hide too early)
@@ -27,16 +34,11 @@ public class RNMultiSplashScreen {
             @Override
             public void run() {
                 if (!activity.isFinishing()) {
-                    String name = "RNSplashScreen_SplashTheme";
-
-                    if (splashName != null) {
-                        name = name + "_" + splashName;
+                    String name = (viewName != null) ? viewName : defaultSplashName;
+                    mSplashDialog = new FullScreenDialog(activity, name);
+                    if (text != null) {
+                        mSplashDialog.setText(text);
                     }
-
-                    int styleId = activity.getResources().getIdentifier(name, "style", activity.getPackageName());
-
-                    mSplashDialog = new Dialog(activity, styleId);
-                    mSplashDialog.setCancelable(false);
 
                     if (!mSplashDialog.isShowing()) {
                         mSplashDialog.show();
@@ -50,7 +52,7 @@ public class RNMultiSplashScreen {
                         // background state and we will not get the context created event
                         ReactContext ctx = instanceManager.getCurrentReactContext();
                         if (ctx != null) {
-                            activity.getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+                            activity.getWindow().getDecorView().setBackgroundColor(Color.TRANSPARENT);
                         } else {
                             // Else; wait until react is initialized before we release the native splash
                             instanceManager.addReactInstanceEventListener(new ReactInstanceManager.ReactInstanceEventListener() {
@@ -61,7 +63,7 @@ public class RNMultiSplashScreen {
                                         @Override
                                         public void run() {
                                             // Hide the native splash screen
-                                            activity.getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+                                            activity.getWindow().getDecorView().setBackgroundColor(Color.TRANSPARENT);
                                         }
                                     });
                                 }
@@ -80,13 +82,13 @@ public class RNMultiSplashScreen {
         if (activity == null) activity = mActivity.get();
         if (activity == null) return;
 
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (mSplashDialog != null && mSplashDialog.isShowing()) {
-                    mSplashDialog.dismiss();
-                }
-            }
-        });
+         activity.runOnUiThread(new Runnable() {
+             @Override
+             public void run() {
+                 if (mSplashDialog != null && mSplashDialog.isShowing()) {
+                     mSplashDialog.dismiss();
+                 }
+             }
+         });
     }
 }

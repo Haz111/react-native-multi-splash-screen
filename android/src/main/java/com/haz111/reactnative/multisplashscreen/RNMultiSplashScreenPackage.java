@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
@@ -16,7 +17,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class RNMultiSplashScreenPackage implements ReactPackage {
-    
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
@@ -24,8 +24,7 @@ public class RNMultiSplashScreenPackage implements ReactPackage {
     }
 
     @Override
-    public List<NativeModule> createNativeModules(
-            ReactApplicationContext reactContext) {
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
 
         modules.add(new RNMultiSplashScreenModule(reactContext));
