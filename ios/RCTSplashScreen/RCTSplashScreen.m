@@ -3,15 +3,12 @@
 static RCTRootView *rootView = nil;
 static UIViewController *rootViewController = nil;
 
-@interface RCTSplashScreen()
-
-@end
-
 @implementation RCTSplashScreen
 
 RCT_EXPORT_MODULE(RNMultiSplashScreen)
 
 + (NSString *)splashImageNameForOrientation {
+    NSLog(@"RNMultiSplashScreen splashImageNameForOrientation"); 
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
@@ -36,6 +33,8 @@ RCT_EXPORT_MODULE(RNMultiSplashScreen)
 }
 
 + (void)initAndShow:(RCTRootView *)v rootViewController:(UIViewController *)rvc{
+    NSLog(@"RNMultiSplashScreen initAndShow"); 
+
     rootView = v;
     rootViewController = rvc;
 
@@ -52,38 +51,68 @@ RCT_EXPORT_MODULE(RNMultiSplashScreen)
 }
 
 RCT_EXPORT_METHOD(hideSplashScreen) {
+    NSLog(@"RNMultiSplashScreen hideSplashScreen 1"); 
     if (!rootView) {
         return;
     }
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(rootView.loadingViewFadeDuration * NSEC_PER_SEC)),
                    dispatch_get_main_queue(),
                    ^{
-                       [UIView transitionWithView: rootView
+                       NSLog(@"RNMultiSplashScreen hideSplashScreen 2"); 
+                       [UIView transitionWithView:rootView
                                          duration:rootView.loadingViewFadeDelay
                                           options:UIViewAnimationOptionTransitionCrossDissolve
                                        animations:^{
-                                           rootView.loadingView.hidden = YES;
-                                       } completion:^(__unused BOOL finished) {
-                                           [rootView.loadingView removeFromSuperview];
-                                       }];
+                                                        rootView.loadingView.hidden = YES;
+                                                    } 
+                                       completion:^(__unused BOOL finished) {
+                                                        [rootView.loadingView removeFromSuperview];
+                                                    }];
+
+                        [rootViewController dismissViewControllerAnimated:NO completion:nil];
                    });
 }
 
 RCT_EXPORT_METHOD(showNativeView:(NSString *)name) {
+    NSLog(@"RNMultiSplashScreen showNativeView. name: %@", name); 
+
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIView *v = [[[NSBundle mainBundle] loadNibNamed:@"PlaceholderView" owner:self options:nil] firstObject];
+        NSLog(@"RNMultiSplashScreen showNativeView"); 
+        UIView *v = [[[NSBundle mainBundle] loadNibNamed:name owner:self options:nil] firstObject];
         UIViewController * vc = [[UIViewController alloc] init];
         vc.view = v;
 
         [rootViewController presentViewController:vc animated:NO completion:nil];
     });
+}
 
+RCT_EXPORT_METHOD(showNativeViewWithText:(NSString *)name text:(NSString *)text) {
+    NSLog(@"RNMultiSplashScreen showNativeView. name: %@ text: %@", name, text); 
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"RNMultiSplashScreen showNativeViewWithText"); 
+        UIView *v = [[[NSBundle mainBundle] loadNibNamed:name owner:self options:nil] firstObject];
+
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 20)];
+
+        [label setTextColor:[UIColor blackColor]];
+        [label setBackgroundColor:[UIColor clearColor]];
+        [label setFont:[UIFont fontWithName: @"Trebuchet MS" size: 14.0f]]; 
+        label.text = text;
+        [v addSubview:label];
+
+        UIViewController * vc = [[UIViewController alloc] init];
+        vc.view = v;
+
+        [rootViewController presentViewController:vc animated:NO completion:nil];
+
+    });
 }
 
 RCT_EXPORT_METHOD(backToReact) {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [rootViewController dismissViewControllerAnimated:NO completion:nil];
-    });
+    NSLog(@"RNMultiSplashScreen backToReact"); 
+   [self hideSplashScreen];
 }
 
 @end
