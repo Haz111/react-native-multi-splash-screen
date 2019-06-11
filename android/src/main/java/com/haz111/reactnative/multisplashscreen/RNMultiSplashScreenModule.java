@@ -21,8 +21,8 @@ class RNMultiSplashScreenModule extends ReactContextBaseJavaModule {
      * Close the active splash screen.
      */
     @ReactMethod
-    public void hideSplashScreen() {
-        this.backToReact();
+    public void hideNativeScreen() {
+        RNMultiSplashScreen.hide(getCurrentActivity());
     }
 
     /**
@@ -41,8 +41,5 @@ class RNMultiSplashScreenModule extends ReactContextBaseJavaModule {
         RNMultiSplashScreen.show((ReactActivity)getCurrentActivity(), null, name, text);
     }
 
-    @ReactMethod
-    public void backToReact() {
-        RNMultiSplashScreen.hide(getCurrentActivity());
-    }
+
 }

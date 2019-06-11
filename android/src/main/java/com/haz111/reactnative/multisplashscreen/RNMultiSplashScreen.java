@@ -3,11 +3,9 @@ package com.haz111.reactnative.multisplashscreen;
 import android.app.Activity;
 import android.graphics.Color;
 import android.content.res.Resources;
-
 import android.widget.TextView;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.bridge.ReactContext;
-
 import java.lang.ref.WeakReference;
 
 public class RNMultiSplashScreen {
@@ -15,6 +13,9 @@ public class RNMultiSplashScreen {
 
     private static FullScreenDialog mSplashDialog;
     private static WeakReference<Activity> mActivity;
+    private static String fontName = null;
+    private static float fontSize = 16.0f;
+    private static int fontColor = Color.BLACK;
 
     public static void show(final Activity activity, final ReactInstanceManager instanceManager, final String viewName) {
         RNMultiSplashScreen.show(activity, instanceManager, viewName, null);
@@ -37,7 +38,7 @@ public class RNMultiSplashScreen {
                     String name = (viewName != null) ? viewName : defaultSplashName;
                     mSplashDialog = new FullScreenDialog(activity, name);
                     if (text != null) {
-                        mSplashDialog.setText(text);
+                        mSplashDialog.setText(text, fontName, fontSize, fontColor);
                     }
 
                     if (!mSplashDialog.isShowing()) {
@@ -90,5 +91,16 @@ public class RNMultiSplashScreen {
                  }
              }
          });
+    }
+
+    public static void setFontProperties(String name, Float size, Integer color) {
+        if(name != null && !name.isEmpty())
+            fontName = name;
+
+        if (size != null)
+            fontSize = size;
+
+        if (color != null)
+            fontColor = color;
     }
 }
