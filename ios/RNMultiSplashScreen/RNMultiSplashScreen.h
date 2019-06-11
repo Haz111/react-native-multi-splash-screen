@@ -2,7 +2,7 @@
 #import <React/RCTRootView.h>
 #import <UIKit/UIKit.h>
 
-@interface RCTSplashScreen : NSObject <RCTBridgeModule>
+@interface RNMultiSplashScreen : NSObject <RCTBridgeModule>
     
     + (void)initAndShow:(RCTRootView *)v rootViewController:(UIViewController *)rvc;
     + (void)hideSplashScreen;

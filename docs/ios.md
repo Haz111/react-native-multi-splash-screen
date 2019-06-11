@@ -12,7 +12,7 @@
 
   ```objectivec
   // [...]
-  #import <RCTSplashScreen/RCTSplashScreen.h>
+  #import <RNMultiSplashScreen/RNMultiSplashScreen.h>
   
   - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  {
@@ -21,7 +21,7 @@
     RCTRootView *rootView = // [...]
     
     // Show splash screen (rn-splash-screen)
-    [RCTSplashScreen show:rootView];
+    [RNMultiSplashScreen show:rootView];
   
     // [...]
  }

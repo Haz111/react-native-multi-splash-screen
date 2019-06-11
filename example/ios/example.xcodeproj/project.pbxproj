@@ -22,7 +22,7 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		F261463142294E2298DF15D4 /* libRCTSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 600B79BB36EB4A529029CBF9 /* libRCTSplashScreen.a */; };
+		F261463142294E2298DF15D4 /* libRNMultiSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 600B79BB36EB4A529029CBF9 /* libRNMultiSplashScreen.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,10 +91,10 @@
 		};
 		760785321D594453009E9766 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5B8518D2AE47433CAFB969D6 /* RCTSplashScreen.xcodeproj */;
+			containerPortal = 5B8518D2AE47433CAFB969D6 /* RNMultiSplashScreen.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3245CDED1BFEE35C00EABF68;
-			remoteInfo = RCTSplashScreen;
+			remoteInfo = RNMultiSplashScreen;
 		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -131,8 +131,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = example/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = example/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		5B8518D2AE47433CAFB969D6 /* RCTSplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTSplashScreen.xcodeproj; path = "../node_modules/rn-splash-screen/ios/RCTSplashScreen.xcodeproj"; sourceTree = "<group>"; };
-		600B79BB36EB4A529029CBF9 /* libRCTSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTSplashScreen.a; sourceTree = "<group>"; };
+		5B8518D2AE47433CAFB969D6 /* RNMultiSplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNMultiSplashScreen.xcodeproj; path = "../node_modules/rn-splash-screen/ios/RNMultiSplashScreen.xcodeproj"; sourceTree = "<group>"; };
+		600B79BB36EB4A529029CBF9 /* libRNMultiSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNMultiSplashScreen.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,7 +160,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				F261463142294E2298DF15D4 /* libRCTSplashScreen.a in Frameworks */,
+				F261463142294E2298DF15D4 /* libRNMultiSplashScreen.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +264,7 @@
 		760785291D594453009E9766 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				760785331D594453009E9766 /* libRCTSplashScreen.a */,
+				760785331D594453009E9766 /* libRNMultiSplashScreen.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -290,7 +290,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				5B8518D2AE47433CAFB969D6 /* RCTSplashScreen.xcodeproj */,
+				5B8518D2AE47433CAFB969D6 /* RNMultiSplashScreen.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -416,7 +416,7 @@
 				},
 				{
 					ProductGroup = 760785291D594453009E9766 /* Products */;
-					ProjectRef = 5B8518D2AE47433CAFB969D6 /* RCTSplashScreen.xcodeproj */;
+					ProjectRef = 5B8518D2AE47433CAFB969D6 /* RNMultiSplashScreen.xcodeproj */;
 				},
 				{
 					ProductGroup = 832341B11AAA6A8300B99B32 /* Products */;
@@ -500,10 +500,10 @@
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		760785331D594453009E9766 /* libRCTSplashScreen.a */ = {
+		760785331D594453009E9766 /* libRNMultiSplashScreen.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libRCTSplashScreen.a;
+			path = libRNMultiSplashScreen.a;
 			remoteRef = 760785321D594453009E9766 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -636,7 +636,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
-					"$(SRCROOT)/../node_modules/rn-splash-screen/ios/RCTSplashScreen/**",
+					"$(SRCROOT)/../node_modules/rn-splash-screen/ios/RNMultiSplashScreen/**",
 				);
 				INFOPLIST_FILE = example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -660,7 +660,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
-					"$(SRCROOT)/../node_modules/rn-splash-screen/ios/RCTSplashScreen/**",
+					"$(SRCROOT)/../node_modules/rn-splash-screen/ios/RNMultiSplashScreen/**",
 				);
 				INFOPLIST_FILE = example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -714,7 +714,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
-					"$(SRCROOT)/../node_modules/rn-splash-screen/ios/RCTSplashScreen/**",
+					"$(SRCROOT)/../node_modules/rn-splash-screen/ios/RNMultiSplashScreen/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -755,7 +755,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
-					"$(SRCROOT)/../node_modules/rn-splash-screen/ios/RCTSplashScreen/**",
+					"$(SRCROOT)/../node_modules/rn-splash-screen/ios/RNMultiSplashScreen/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

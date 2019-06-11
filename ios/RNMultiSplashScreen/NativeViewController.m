@@ -1,4 +1,4 @@
-#import "RCTSplashScreen.h"
+#import "RNMultiSplashScreen.h"
 
 @implementation NativeViewController
 

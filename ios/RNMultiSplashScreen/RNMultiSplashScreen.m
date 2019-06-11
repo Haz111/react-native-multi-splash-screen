@@ -1,25 +1,24 @@
-#import "RCTSplashScreen.h"
+#import "RNMultiSplashScreen.h"
 
 static RCTRootView *rootView = nil;
 static UIViewController *rootViewController = nil;
 static UIFont *textFont = nil;
 static UIColor *textColor = nil;
 
-@implementation RCTSplashScreen
+@implementation RNMultiSplashScreen
 
 RCT_EXPORT_MODULE(RNMultiSplashScreen)
 
 + (void)initAndShow:(RCTRootView *)v rootViewController:(UIViewController *)rvc {
     rootView = v;
     rootViewController = rvc;
-    textFont = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:15.0f];
+    textFont = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:16.0f];
     textColor = UIColor.blackColor;
-    
     
     rootView.loadingViewFadeDelay = 0.1;
     rootView.loadingViewFadeDuration = 0.1;
     UIImageView *view = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    NSString* launchFn = [RCTSplashScreen splashImageNameForOrientation];
+    NSString* launchFn = [RNMultiSplashScreen splashImageNameForOrientation];
     view.image = [UIImage imageNamed:launchFn];
     
     [[NSNotificationCenter defaultCenter] removeObserver:rootView  name:RCTContentDidAppearNotification object:rootView];

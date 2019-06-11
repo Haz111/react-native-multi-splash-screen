@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B47FAD4822A80624000F403E /* RCTSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B47FAD4722A80624000F403E /* RCTSplashScreen.m */; };
+		B47FAD4822A80624000F403E /* RNMultiSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = B47FAD4722A80624000F403E /* RNMultiSplashScreen.m */; };
 		B47FAD4C22A8066B000F403E /* NativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B47FAD4B22A8066B000F403E /* NativeViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -24,9 +24,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3245CDED1BFEE35C00EABF68 /* libRCTSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTSplashScreen.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B47FAD4622A80610000F403E /* RCTSplashScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTSplashScreen.h; sourceTree = "<group>"; };
-		B47FAD4722A80624000F403E /* RCTSplashScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTSplashScreen.m; sourceTree = "<group>"; };
+		3245CDED1BFEE35C00EABF68 /* libRNMultiSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNMultiSplashScreen.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B47FAD4622A80610000F403E /* RNMultiSplashScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNMultiSplashScreen.h; sourceTree = "<group>"; };
+		B47FAD4722A80624000F403E /* RNMultiSplashScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNMultiSplashScreen.m; sourceTree = "<group>"; };
 		B47FAD4B22A8066B000F403E /* NativeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,7 +44,7 @@
 		3245CDE41BFEE35C00EABF68 = {
 			isa = PBXGroup;
 			children = (
-				3245CDEF1BFEE35C00EABF68 /* RCTSplashScreen */,
+				3245CDEF1BFEE35C00EABF68 /* RNMultiSplashScreen */,
 				3245CDEE1BFEE35C00EABF68 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,28 +52,28 @@
 		3245CDEE1BFEE35C00EABF68 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3245CDED1BFEE35C00EABF68 /* libRCTSplashScreen.a */,
+				3245CDED1BFEE35C00EABF68 /* libRNMultiSplashScreen.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3245CDEF1BFEE35C00EABF68 /* RCTSplashScreen */ = {
+		3245CDEF1BFEE35C00EABF68 /* RNMultiSplashScreen */ = {
 			isa = PBXGroup;
 			children = (
-				B47FAD4622A80610000F403E /* RCTSplashScreen.h */,
-				B47FAD4722A80624000F403E /* RCTSplashScreen.m */,
+				B47FAD4622A80610000F403E /* RNMultiSplashScreen.h */,
+				B47FAD4722A80624000F403E /* RNMultiSplashScreen.m */,
 				B47FAD4B22A8066B000F403E /* NativeViewController.m */,
 			);
-			name = RCTSplashScreen;
-			path = "/Users/hubert/workspace/GoodLood/rn-multi-splash-screen-copy/ios/RCTSplashScreen";
+			name = RNMultiSplashScreen;
+			path = "/Users/hubert/workspace/GoodLood/rn-multi-splash-screen-copy/ios/RNMultiSplashScreen";
 			sourceTree = "<absolute>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3245CDEC1BFEE35C00EABF68 /* RCTSplashScreen */ = {
+		3245CDEC1BFEE35C00EABF68 /* RNMultiSplashScreen */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3245CE011BFEE35C00EABF68 /* Build configuration list for PBXNativeTarget "RCTSplashScreen" */;
+			buildConfigurationList = 3245CE011BFEE35C00EABF68 /* Build configuration list for PBXNativeTarget "RNMultiSplashScreen" */;
 			buildPhases = (
 				3245CDE91BFEE35C00EABF68 /* Sources */,
 				3245CDEA1BFEE35C00EABF68 /* Frameworks */,
@@ -83,9 +83,9 @@
 			);
 			dependencies = (
 			);
-			name = RCTSplashScreen;
-			productName = RCTSplashScreen;
-			productReference = 3245CDED1BFEE35C00EABF68 /* libRCTSplashScreen.a */;
+			name = RNMultiSplashScreen;
+			productName = RNMultiSplashScreen;
+			productReference = 3245CDED1BFEE35C00EABF68 /* libRNMultiSplashScreen.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3245CDE81BFEE35C00EABF68 /* Build configuration list for PBXProject "RCTSplashScreen" */;
+			buildConfigurationList = 3245CDE81BFEE35C00EABF68 /* Build configuration list for PBXProject "RNMultiSplashScreen" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3245CDEC1BFEE35C00EABF68 /* RCTSplashScreen */,
+				3245CDEC1BFEE35C00EABF68 /* RNMultiSplashScreen */,
 			);
 		};
 /* End PBXProject section */
@@ -126,7 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B47FAD4C22A8066B000F403E /* NativeViewController.m in Sources */,
-				B47FAD4822A80624000F403E /* RCTSplashScreen.m in Sources */,
+				B47FAD4822A80624000F403E /* RNMultiSplashScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +242,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3245CDE81BFEE35C00EABF68 /* Build configuration list for PBXProject "RCTSplashScreen" */ = {
+		3245CDE81BFEE35C00EABF68 /* Build configuration list for PBXProject "RNMultiSplashScreen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3245CDFF1BFEE35C00EABF68 /* Debug */,
@@ -251,7 +251,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3245CE011BFEE35C00EABF68 /* Build configuration list for PBXNativeTarget "RCTSplashScreen" */ = {
+		3245CE011BFEE35C00EABF68 /* Build configuration list for PBXNativeTarget "RNMultiSplashScreen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3245CE021BFEE35C00EABF68 /* Debug */,
