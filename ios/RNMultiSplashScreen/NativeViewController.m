@@ -21,6 +21,8 @@
         [label setBackgroundColor:[UIColor clearColor]];
         [label setTextAlignment:NSTextAlignmentCenter];
         [label setFont:font];
+        [label setNumberOfLines: 0];
+        label.lineBreakMode = NSLineBreakByWordWrapping;
         label.text = text;
         [view addSubview:label];
         [label setCenter:view.center];
