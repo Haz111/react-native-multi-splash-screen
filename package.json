@@ -18,7 +18,10 @@
     "launchui",
     "show",
     "hide",
-    "mobile"
+    "mobile",
+    "native",
+    "nativeview",
+    "view"
   ],
   "homepage": "https://github.com/Haz111/rn-multi-splash-screen",
   "bugs": {

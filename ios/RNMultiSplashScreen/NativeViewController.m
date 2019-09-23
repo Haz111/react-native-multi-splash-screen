@@ -2,20 +2,16 @@
 
 @implementation NativeViewController
 
-- (instancetype)initScreenController:(CGRect)frame withBg:(NSString *)name text:(NSString *)text color:(UIColor *)color font:(UIFont *)font
+- (instancetype)initScreenController:(CGRect)frame viewName:(NSString *)viewName text:(NSString *)text color:(UIColor *)color font:(UIFont *)font
 {
     NativeViewController *nvc = [self init];
-    
-    UIView *view = [[UIView alloc] initWithFrame:frame];
-    UIImage *image = [UIImage imageNamed:name];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.frame = frame;
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [view addSubview:imageView];
+    UIView *view = [[[NSBundle mainBundle] loadNibNamed:viewName owner:self options:nil] objectAtIndex:0];
+    view.frame = frame;
     
     if (text != nil && text != (id)[NSNull null] && text.length != 0 )
     {
-        UILabel *label = [[UILabel alloc] initWithFrame:frame];
+        CGRect frameWithMargin = CGRectInset(frame, 32, 0);
+        UILabel *label = [[UILabel alloc] initWithFrame:frameWithMargin];
         
         [label setTextColor:color];
         [label setBackgroundColor:[UIColor clearColor]];

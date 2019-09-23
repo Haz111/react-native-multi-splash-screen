@@ -17,28 +17,14 @@ class RNMultiSplashScreenModule extends ReactContextBaseJavaModule {
         return "RNMultiSplashScreen";
     }
 
-    /**
-     * Close the active splash screen.
-     */
     @ReactMethod
-    public void hideNativeScreen() {
+    public void hideNativeView() {
         RNMultiSplashScreen.hide(getCurrentActivity());
     }
 
-    /**
-     * Show image like the splash screen.
-     */
     @ReactMethod
-    public void showNativeView(String name) {
-        RNMultiSplashScreen.show((ReactActivity)getCurrentActivity(), null, name);
-    }
-
-    /**
-     * Show image like the splash screen with text on it.
-     */
-    @ReactMethod
-    public void showNativeViewWithText(String name, String text) {
-        RNMultiSplashScreen.show((ReactActivity)getCurrentActivity(), null, name, text);
+    public void showNativeView(String name, String text) {
+        RNMultiSplashScreen.show((ReactActivity)getCurrentActivity(), name, text);
     }
 
 

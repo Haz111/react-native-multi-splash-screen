@@ -13,7 +13,6 @@
 
 @interface NativeViewController : UIViewController
     
-    - (instancetype)initScreenController:(CGRect)frame withBg:(NSString *)name text:(NSString *)text color:(UIColor *)color font:(UIFont *)font;
+    - (instancetype)initScreenController:(CGRect)frame viewName:(NSString *)viewName text:(NSString *)text color:(UIColor *)color font:(UIFont *)font;
     
 @end
-

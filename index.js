@@ -3,22 +3,12 @@ import { Platform } from 'react-native';
 
 const { RNMultiSplashScreen } = NativeModules;
 
-function showNativeView({androidView, iosBackground}) {
-    if (Platform.OS === "ios")
-        RNMultiSplashScreen.showNativeViewWithText(iosBackground);
-    if (Platform.OS === "android")
-        RNMultiSplashScreen.showNativeViewWithText(androidView);
+function showNativeView(backgroundViewName, text) {
+    RNMultiSplashScreen.showNativeView(backgroundViewName, text);
 }
 
-function showNativeViewWithText({androidView, iosBackground}, text) {
-    if (Platform.OS === "ios")
-        RNMultiSplashScreen.showNativeViewWithText(iosBackground, text);
-    if (Platform.OS === "android")
-        RNMultiSplashScreen.showNativeViewWithText(androidView, text);
+function hideNativeView() {
+    RNMultiSplashScreen.hideNativeView();
 }
 
-function hideNativeScreen() {
-    RNMultiSplashScreen.hideNativeScreen();
-}
-
-export {showNativeView, showNativeViewWithText, hideNativeScreen}
+export {showNativeView, hideNativeView}

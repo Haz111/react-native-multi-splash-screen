@@ -24,7 +24,6 @@ RCT_EXPORT_MODULE(RNMultiSplashScreen)
     [[NSNotificationCenter defaultCenter] removeObserver:rootView  name:RCTContentDidAppearNotification object:rootView];
     
     [rootView setLoadingView:view];
-    rootView.loadingView.hidden = NO;
 }
 
 + (void)setFont:(UIFont *)font {
@@ -36,7 +35,7 @@ RCT_EXPORT_MODULE(RNMultiSplashScreen)
     textColor = color;
 }
 
-RCT_EXPORT_METHOD(hideNativeScreen) {
+RCT_EXPORT_METHOD(hideNativeView) {
     if (!rootView) {
         return;
     }
@@ -58,17 +57,13 @@ RCT_EXPORT_METHOD(hideNativeScreen) {
                    });
 }
 
-RCT_EXPORT_METHOD(showNativeView:(NSString *)name) {
-    [self showNativeScreen:name text:nil];
+RCT_EXPORT_METHOD(showNativeView:(NSString *)viewName text:(NSString *)text) {
+    [self show:viewName text:text];
 }
 
-RCT_EXPORT_METHOD(showNativeViewWithText:(NSString *)name text:(NSString *)text) {
-    [self showNativeScreen:name text:text];
-}
-
--(void)showNativeScreen:(NSString *)name text:(NSString *)text {
+-(void)show:(NSString *)viewName text:(NSString *)text {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NativeViewController *nvc = [[NativeViewController alloc] initScreenController:rootViewController.view.bounds withBg:name text:text color:textColor font:textFont];
+        NativeViewController *nvc = [[NativeViewController alloc] initScreenController:rootViewController.view.bounds viewName:viewName text:text color:textColor font:textFont];
         [rootViewController presentViewController:nvc animated:NO completion:nil];
     });
 }
